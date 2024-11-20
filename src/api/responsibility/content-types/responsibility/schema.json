@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "responsibilities",
+  "info": {
+    "singularName": "responsibility",
+    "pluralName": "responsibilities",
+    "displayName": "Responsibility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "services": {
+      "displayName": "Listing",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.listing"
+    },
+    "values": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.listing",
+      "required": true
+    }
+  }
+}

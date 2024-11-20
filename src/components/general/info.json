@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_general_infos",
+  "info": {
+    "displayName": "Info",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "subheading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

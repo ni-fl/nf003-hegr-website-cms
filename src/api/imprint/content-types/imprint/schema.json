@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "imprints",
+  "info": {
+    "singularName": "imprint",
+    "pluralName": "imprints",
+    "displayName": "Imprint"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "addresses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.address",
+      "required": true,
+      "min": 1
+    }
+  }
+}

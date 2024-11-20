@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_general_histories",
+  "info": {
+    "displayName": "History",
+    "icon": "rotate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "events": {
+      "displayName": "Event",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.event",
+      "min": 1
+    },
+    "subheading": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

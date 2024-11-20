@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_general_impressions",
+  "info": {
+    "displayName": "Impression",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "default": "alpha",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

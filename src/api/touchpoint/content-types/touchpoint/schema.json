@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "touchpoints",
+  "info": {
+    "singularName": "touchpoint",
+    "pluralName": "touchpoints",
+    "displayName": "Touchpoint",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "general": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.address",
+      "required": true
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.address",
+      "required": true
+    },
+    "post": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.address",
+      "required": true
+    },
+    "office": {
+      "type": "component",
+      "repeatable": false,
+      "required": true,
+      "component": "general.address"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.image"
+    }
+  }
+}
