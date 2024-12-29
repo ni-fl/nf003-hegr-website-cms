@@ -1,5 +1,141 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface GeneralMetadata extends Struct.ComponentSchema {
+  collectionName: 'components_general_metadata';
+  info: {
+    displayName: 'Metadata';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralMedia extends Struct.ComponentSchema {
+  collectionName: 'components_general_media';
+  info: {
+    displayName: 'Video';
+    description: '';
+  };
+  attributes: {
+    video: Schema.Attribute.Media<'files' | 'videos'> &
+      Schema.Attribute.Required;
+    poster: Schema.Attribute.Media<'files' | 'images'> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralListing extends Struct.ComponentSchema {
+  collectionName: 'components_general_listings';
+  info: {
+    displayName: 'Listing';
+    icon: 'apps';
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralLink extends Struct.ComponentSchema {
+  collectionName: 'components_general_links';
+  info: {
+    displayName: 'Link';
+    icon: 'cursor';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    href: Schema.Attribute.String;
+  };
+}
+
+export interface GeneralInfo extends Struct.ComponentSchema {
+  collectionName: 'components_general_infos';
+  info: {
+    displayName: 'Info';
+    icon: 'lightbulb';
+    description: '';
+  };
+  attributes: {
+    subheading: Schema.Attribute.String;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    timelines: Schema.Attribute.Component<'partial.timeline', true>;
+  };
+}
+
+export interface GeneralImpression extends Struct.ComponentSchema {
+  collectionName: 'components_general_impressions';
+  info: {
+    displayName: 'Impression';
+    icon: 'earth';
+  };
+  attributes: {
+    format: Schema.Attribute.Enumeration<['alpha', 'beta', 'gamma']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'alpha'>;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralImage extends Struct.ComponentSchema {
+  collectionName: 'components_general_images';
+  info: {
+    displayName: 'Image';
+    icon: 'dashboard';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface GeneralHistory extends Struct.ComponentSchema {
+  collectionName: 'components_general_histories';
+  info: {
+    displayName: 'History';
+    icon: 'rotate';
+    description: '';
+  };
+  attributes: {
+    events: Schema.Attribute.Component<'general.event', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    subheading: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralEvent extends Struct.ComponentSchema {
+  collectionName: 'components_general_events';
+  info: {
+    displayName: 'Event';
+    icon: 'search';
+    description: '';
+  };
+  attributes: {
+    date: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface GeneralButton extends Struct.ComponentSchema {
+  collectionName: 'components_general_buttons';
+  info: {
+    displayName: 'Button';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionTimeline extends Struct.ComponentSchema {
   collectionName: 'components_section_timelines';
   info: {
@@ -297,145 +433,19 @@ export interface PartialCard extends Struct.ComponentSchema {
   };
 }
 
-export interface GeneralMetadata extends Struct.ComponentSchema {
-  collectionName: 'components_general_metadata';
-  info: {
-    displayName: 'Metadata';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralMedia extends Struct.ComponentSchema {
-  collectionName: 'components_general_media';
-  info: {
-    displayName: 'Video';
-    description: '';
-  };
-  attributes: {
-    video: Schema.Attribute.Media<'files' | 'videos'> &
-      Schema.Attribute.Required;
-    poster: Schema.Attribute.Media<'files' | 'images'> &
-      Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralListing extends Struct.ComponentSchema {
-  collectionName: 'components_general_listings';
-  info: {
-    displayName: 'Listing';
-    icon: 'apps';
-  };
-  attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralLink extends Struct.ComponentSchema {
-  collectionName: 'components_general_links';
-  info: {
-    displayName: 'Link';
-    icon: 'cursor';
-  };
-  attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    href: Schema.Attribute.String;
-  };
-}
-
-export interface GeneralInfo extends Struct.ComponentSchema {
-  collectionName: 'components_general_infos';
-  info: {
-    displayName: 'Info';
-    icon: 'lightbulb';
-    description: '';
-  };
-  attributes: {
-    subheading: Schema.Attribute.String;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-    timelines: Schema.Attribute.Component<'partial.timeline', true>;
-  };
-}
-
-export interface GeneralImpression extends Struct.ComponentSchema {
-  collectionName: 'components_general_impressions';
-  info: {
-    displayName: 'Impression';
-    icon: 'earth';
-  };
-  attributes: {
-    format: Schema.Attribute.Enumeration<['alpha', 'beta', 'gamma']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'alpha'>;
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralImage extends Struct.ComponentSchema {
-  collectionName: 'components_general_images';
-  info: {
-    displayName: 'Image';
-    icon: 'dashboard';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface GeneralHistory extends Struct.ComponentSchema {
-  collectionName: 'components_general_histories';
-  info: {
-    displayName: 'History';
-    icon: 'rotate';
-    description: '';
-  };
-  attributes: {
-    events: Schema.Attribute.Component<'general.event', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralEvent extends Struct.ComponentSchema {
-  collectionName: 'components_general_events';
-  info: {
-    displayName: 'Event';
-    icon: 'search';
-    description: '';
-  };
-  attributes: {
-    date: Schema.Attribute.String & Schema.Attribute.Required;
-    text: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralButton extends Struct.ComponentSchema {
-  collectionName: 'components_general_buttons';
-  info: {
-    displayName: 'Button';
-    icon: 'paperPlane';
-  };
-  attributes: {
-    href: Schema.Attribute.String & Schema.Attribute.Required;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'general.metadata': GeneralMetadata;
+      'general.media': GeneralMedia;
+      'general.listing': GeneralListing;
+      'general.link': GeneralLink;
+      'general.info': GeneralInfo;
+      'general.impression': GeneralImpression;
+      'general.image': GeneralImage;
+      'general.history': GeneralHistory;
+      'general.event': GeneralEvent;
+      'general.button': GeneralButton;
       'section.timeline': SectionTimeline;
       'section.teaser': SectionTeaser;
       'section.team': SectionTeam;
@@ -458,16 +468,6 @@ declare module '@strapi/strapi' {
       'partial.image': PartialImage;
       'partial.heading': PartialHeading;
       'partial.card': PartialCard;
-      'general.metadata': GeneralMetadata;
-      'general.media': GeneralMedia;
-      'general.listing': GeneralListing;
-      'general.link': GeneralLink;
-      'general.info': GeneralInfo;
-      'general.impression': GeneralImpression;
-      'general.image': GeneralImage;
-      'general.history': GeneralHistory;
-      'general.event': GeneralEvent;
-      'general.button': GeneralButton;
     }
   }
 }
