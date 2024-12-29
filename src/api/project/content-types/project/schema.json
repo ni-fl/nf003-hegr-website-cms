@@ -19,18 +19,11 @@
     "teaser": {
       "type": "dynamiczone",
       "components": [
-        "general.media",
-        "general.image"
+        "partial.video",
+        "partial.image"
       ],
       "required": true,
       "max": 1,
-      "min": 1
-    },
-    "infos": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.info",
-      "required": true,
       "min": 1
     },
     "impressions": {
@@ -44,6 +37,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::project.project"
+    },
+    "infos": {
+      "type": "dynamiczone",
+      "components": [
+        "section.timeline",
+        "section.paragraph"
+      ],
+      "required": true
     }
   }
 }

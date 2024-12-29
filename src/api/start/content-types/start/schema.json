@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "starts",
+  "info": {
+    "singularName": "start",
+    "pluralName": "starts",
+    "displayName": "Start",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "section.small-link",
+        "section.projects",
+        "section.hero-image",
+        "section.article",
+        "section.intro",
+        "partial.info"
+      ],
+      "required": false
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.metadata",
+      "required": true
+    }
+  }
+}

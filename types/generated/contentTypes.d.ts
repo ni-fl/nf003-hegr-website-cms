@@ -520,6 +520,40 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
+  collectionName: 'contact_pages';
+  info: {
+    singularName: 'contact-page';
+    pluralName: 'contact-pages';
+    displayName: 'Contact-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    metadata: Schema.Attribute.Component<'general.metadata', false> &
+      Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      ['section.hero-image', 'section.address', 'section.spacer']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-page.contact-page'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDataPrivacyDataPrivacy extends Struct.SingleTypeSchema {
   collectionName: 'data_privacies';
   info: {
@@ -544,6 +578,40 @@ export interface ApiDataPrivacyDataPrivacy extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::data-privacy.data-privacy'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDataPrivacyPageDataPrivacyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'data_privacy_pages';
+  info: {
+    singularName: 'data-privacy-page';
+    pluralName: 'data-privacy-pages';
+    displayName: 'Data-Privacy-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'general.metadata', false>;
+    content: Schema.Attribute.DynamicZone<
+      ['section.article', 'section.spacer']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::data-privacy-page.data-privacy-page'
     > &
       Schema.Attribute.Private;
   };
@@ -591,14 +659,6 @@ export interface ApiImprintImprint extends Struct.SingleTypeSchema {
   };
   attributes: {
     heading: Schema.Attribute.String & Schema.Attribute.Required;
-    addresses: Schema.Attribute.Component<'general.address', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -610,6 +670,78 @@ export interface ApiImprintImprint extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::imprint.imprint'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiImprintPageImprintPage extends Struct.SingleTypeSchema {
+  collectionName: 'imprint_pages';
+  info: {
+    singularName: 'imprint-page';
+    pluralName: 'imprint-pages';
+    displayName: 'Imprint-Page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'general.metadata', false>;
+    content: Schema.Attribute.DynamicZone<
+      ['section.article', 'section.spacer']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::imprint-page.imprint-page'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInfoPageInfoPage extends Struct.SingleTypeSchema {
+  collectionName: 'info_pages';
+  info: {
+    singularName: 'info-page';
+    pluralName: 'info-pages';
+    displayName: 'Info-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'general.metadata', false> &
+      Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'section.spacer',
+        'section.intro',
+        'section.hero-image',
+        'section.cards',
+        'section.team',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::info-page.info-page'
     > &
       Schema.Attribute.Private;
   };
@@ -660,9 +792,10 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
         minLength: 1;
       }>;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    history: Schema.Attribute.Component<'general.history', false> &
+    infos: Schema.Attribute.DynamicZone<
+      ['section.timeline', 'section.paragraph']
+    > &
       Schema.Attribute.Required;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -720,20 +853,12 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
   attributes: {
     heading: Schema.Attribute.String & Schema.Attribute.Required;
-    teaser: Schema.Attribute.DynamicZone<['general.media', 'general.image']> &
+    teaser: Schema.Attribute.DynamicZone<['partial.video', 'partial.image']> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
           min: 1;
           max: 1;
-        },
-        number
-      >;
-    infos: Schema.Attribute.Component<'general.info', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
         },
         number
       >;
@@ -746,6 +871,10 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
         number
       >;
     project: Schema.Attribute.Relation<'oneToOne', 'api::project.project'>;
+    infos: Schema.Attribute.DynamicZone<
+      ['section.timeline', 'section.paragraph']
+    > &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -757,6 +886,85 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::project.project'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectPageProjectPage extends Struct.SingleTypeSchema {
+  collectionName: 'project_pages';
+  info: {
+    singularName: 'project-page';
+    pluralName: 'project-pages';
+    displayName: 'Project-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'section.small-link',
+        'section.projects',
+        'section.intro',
+        'section.hero-image',
+        'section.article',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-page.project-page'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectsPageProjectsPage extends Struct.SingleTypeSchema {
+  collectionName: 'projects_pages';
+  info: {
+    singularName: 'projects-page';
+    pluralName: 'projects-pages';
+    displayName: 'Projects-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'general.metadata', false> &
+      Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'section.small-link',
+        'section.projects',
+        'section.intro',
+        'section.hero-image',
+        'section.article',
+        'section.spacer',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::projects-page.projects-page'
     > &
       Schema.Attribute.Private;
   };
@@ -822,6 +1030,84 @@ export interface ApiShowcaseShowcase extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiStartStart extends Struct.SingleTypeSchema {
+  collectionName: 'starts';
+  info: {
+    singularName: 'start';
+    pluralName: 'starts';
+    displayName: 'Start';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'section.small-link',
+        'section.projects',
+        'section.hero-image',
+        'section.article',
+        'section.intro',
+        'partial.info',
+      ]
+    >;
+    metadata: Schema.Attribute.Component<'general.metadata', false> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::start.start'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStartPageStartPage extends Struct.SingleTypeSchema {
+  collectionName: 'start_pages';
+  info: {
+    singularName: 'start-page';
+    pluralName: 'start-pages';
+    displayName: 'Start-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'general.metadata', false> &
+      Schema.Attribute.Required;
+    content: Schema.Attribute.DynamicZone<
+      [
+        'section.small-link',
+        'section.projects',
+        'section.intro',
+        'section.hero-image',
+        'section.article',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::start-page.start-page'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTeaserTeaser extends Struct.SingleTypeSchema {
   collectionName: 'teasers';
   info: {
@@ -867,14 +1153,6 @@ export interface ApiTouchpointTouchpoint extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    general: Schema.Attribute.Component<'general.address', false> &
-      Schema.Attribute.Required;
-    contact: Schema.Attribute.Component<'general.address', false> &
-      Schema.Attribute.Required;
-    post: Schema.Attribute.Component<'general.address', false> &
-      Schema.Attribute.Required;
-    office: Schema.Attribute.Component<'general.address', false> &
-      Schema.Attribute.Required;
     images: Schema.Attribute.Component<'general.image', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1275,15 +1553,23 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::data-privacy.data-privacy': ApiDataPrivacyDataPrivacy;
+      'api::data-privacy-page.data-privacy-page': ApiDataPrivacyPageDataPrivacyPage;
       'api::hero.hero': ApiHeroHero;
       'api::imprint.imprint': ApiImprintImprint;
+      'api::imprint-page.imprint-page': ApiImprintPageImprintPage;
+      'api::info-page.info-page': ApiInfoPageInfoPage;
       'api::intro.intro': ApiIntroIntro;
       'api::person.person': ApiPersonPerson;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::project.project': ApiProjectProject;
+      'api::project-page.project-page': ApiProjectPageProjectPage;
+      'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
       'api::responsibility.responsibility': ApiResponsibilityResponsibility;
       'api::showcase.showcase': ApiShowcaseShowcase;
+      'api::start.start': ApiStartStart;
+      'api::start-page.start-page': ApiStartPageStartPage;
       'api::teaser.teaser': ApiTeaserTeaser;
       'api::touchpoint.touchpoint': ApiTouchpointTouchpoint;
       'admin::permission': AdminPermission;

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_section_intros",
+  "info": {
+    "displayName": "Intro",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headings": {
+      "displayName": "Heading",
+      "type": "component",
+      "repeatable": true,
+      "component": "partial.heading",
+      "required": true,
+      "min": 1
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.link",
+      "required": true
+    }
+  }
+}

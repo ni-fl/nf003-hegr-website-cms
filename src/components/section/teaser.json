@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_teasers",
+  "info": {
+    "displayName": "Teaser",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.heading"
+    }
+  }
+}

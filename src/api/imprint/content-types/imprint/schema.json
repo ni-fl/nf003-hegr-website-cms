@@ -14,13 +14,6 @@
     "heading": {
       "type": "string",
       "required": true
-    },
-    "addresses": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.address",
-      "required": true,
-      "min": 1
     }
   }
 }

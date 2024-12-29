@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "data_privacy_pages",
+  "info": {
+    "singularName": "data-privacy-page",
+    "pluralName": "data-privacy-pages",
+    "displayName": "Data-Privacy-Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.metadata"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "section.article",
+        "section.spacer"
+      ],
+      "required": false
+    }
+  }
+}

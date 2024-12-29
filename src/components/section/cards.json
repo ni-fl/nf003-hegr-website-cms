@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_section_cards",
+  "info": {
+    "displayName": "Cards",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial.card",
+      "required": true
+    }
+  }
+}

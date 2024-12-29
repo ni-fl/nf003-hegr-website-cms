@@ -25,14 +25,12 @@
         "images"
       ]
     },
-    "history": {
-      "type": "component",
-      "repeatable": false,
-      "component": "general.history",
-      "required": true
-    },
-    "text": {
-      "type": "blocks",
+    "infos": {
+      "type": "dynamiczone",
+      "components": [
+        "section.timeline",
+        "section.paragraph"
+      ],
       "required": true
     }
   }

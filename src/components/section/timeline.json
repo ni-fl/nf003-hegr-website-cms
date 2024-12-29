@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_section_timelines",
+  "info": {
+    "displayName": "Timeline",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "events": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial.timeline"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_section_paragraphs",
+  "info": {
+    "displayName": "Paragraph",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": true
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_section_articles",
+  "info": {
+    "displayName": "Article",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "infos": {
+      "displayName": "Info",
+      "type": "component",
+      "repeatable": true,
+      "component": "partial.info",
+      "required": true,
+      "min": 1
+    }
+  }
+}

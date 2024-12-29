@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_projects",
+  "info": {
+    "displayName": "Projects",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    }
+  }
+}

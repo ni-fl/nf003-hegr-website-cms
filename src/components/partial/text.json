@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_partial_texts",
+  "info": {
+    "displayName": "text",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks",
+      "required": false
+    }
+  }
+}

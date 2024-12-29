@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_section_addresses",
+  "info": {
+    "displayName": "Address",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "company": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.linklist"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.linklist"
+    },
+    "post": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.linklist"
+    },
+    "office": {
+      "type": "component",
+      "repeatable": false,
+      "component": "partial.linklist"
+    }
+  }
+}

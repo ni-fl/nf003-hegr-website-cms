@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_teams",
+  "info": {
+    "displayName": "Team",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "team": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person.person"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_partial_values",
+  "info": {
+    "displayName": "Value",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

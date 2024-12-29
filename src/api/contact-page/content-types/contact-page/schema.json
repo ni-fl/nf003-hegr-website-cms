@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_pages",
+  "info": {
+    "singularName": "contact-page",
+    "pluralName": "contact-pages",
+    "displayName": "Contact-Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.metadata",
+      "required": true
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "section.hero-image",
+        "section.address",
+        "section.spacer"
+      ]
+    }
+  }
+}

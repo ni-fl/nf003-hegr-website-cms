@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_section_small_links",
+  "info": {
+    "displayName": "Small Link",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

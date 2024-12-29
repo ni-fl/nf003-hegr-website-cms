@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_partial_timelines",
+  "info": {
+    "displayName": "Event",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
