@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_partial_impressions",
+  "collectionName": "components_section_impressions",
   "info": {
     "displayName": "Impression",
     "icon": "alien"
@@ -12,15 +12,15 @@
         "alpha",
         "beta",
         "gamma"
-      ]
+      ],
+      "required": true
     },
     "image": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
-      "multiple": false,
-      "required": true
+      "multiple": false
     }
   }
 }

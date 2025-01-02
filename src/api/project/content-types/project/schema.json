@@ -38,6 +38,22 @@
         "partial.paragraph"
       ],
       "required": true
+    },
+    "impressions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.impression",
+      "required": true
+    },
+    "logo": {
+      "type": "dynamiczone",
+      "components": [
+        "partial.video",
+        "partial.image"
+      ],
+      "required": true,
+      "min": 1,
+      "max": 1
     }
   }
 }

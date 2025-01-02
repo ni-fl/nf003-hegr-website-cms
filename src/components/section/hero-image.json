@@ -2,16 +2,22 @@
   "collectionName": "components_section_hero_images",
   "info": {
     "displayName": "Hero Image",
-    "icon": "alien"
+    "icon": "alien",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "hasPadding": {
+      "type": "boolean",
+      "default": true,
       "required": true
     }
   }

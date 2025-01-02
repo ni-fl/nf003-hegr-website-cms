@@ -1,5 +1,19 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface GeneralMetadata extends Struct.ComponentSchema {
+  collectionName: 'components_general_metadata';
+  info: {
+    displayName: 'Metadata';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionTeaser extends Struct.ComponentSchema {
   collectionName: 'components_section_teasers';
   info: {
@@ -90,14 +104,31 @@ export interface SectionIntro extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionImpression extends Struct.ComponentSchema {
+  collectionName: 'components_section_impressions';
+  info: {
+    displayName: 'Impression';
+    icon: 'alien';
+  };
+  attributes: {
+    format: Schema.Attribute.Enumeration<['alpha', 'beta', 'gamma']> &
+      Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface SectionHeroImage extends Struct.ComponentSchema {
   collectionName: 'components_section_hero_images';
   info: {
     displayName: 'Hero Image';
     icon: 'alien';
+    description: '';
   };
   attributes: {
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    hasPadding: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
   };
 }
 
@@ -146,20 +177,6 @@ export interface SectionAddress extends Struct.ComponentSchema {
     contact: Schema.Attribute.Component<'partial.linklist', false>;
     post: Schema.Attribute.Component<'partial.linklist', false>;
     office: Schema.Attribute.Component<'partial.linklist', false>;
-  };
-}
-
-export interface GeneralMetadata extends Struct.ComponentSchema {
-  collectionName: 'components_general_metadata';
-  info: {
-    displayName: 'Metadata';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
   };
 }
 
@@ -259,18 +276,6 @@ export interface PartialInfo extends Struct.ComponentSchema {
   };
 }
 
-export interface PartialImpression extends Struct.ComponentSchema {
-  collectionName: 'components_partial_impressions';
-  info: {
-    displayName: 'Impression';
-    icon: 'alien';
-  };
-  attributes: {
-    format: Schema.Attribute.Enumeration<['alpha', 'beta', 'gamma']>;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
 export interface PartialImage extends Struct.ComponentSchema {
   collectionName: 'components_partial_images';
   info: {
@@ -325,17 +330,18 @@ export interface PartialCard extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'general.metadata': GeneralMetadata;
       'section.teaser': SectionTeaser;
       'section.team': SectionTeam;
       'section.spacer': SectionSpacer;
       'section.projects': SectionProjects;
       'section.paragraph': SectionParagraph;
       'section.intro': SectionIntro;
+      'section.impression': SectionImpression;
       'section.hero-image': SectionHeroImage;
       'section.cards': SectionCards;
       'section.article': SectionArticle;
       'section.address': SectionAddress;
-      'general.metadata': GeneralMetadata;
       'partial.video': PartialVideo;
       'partial.value': PartialValue;
       'partial.timeline': PartialTimeline;
@@ -344,7 +350,6 @@ declare module '@strapi/strapi' {
       'partial.linklist': PartialLinklist;
       'partial.link': PartialLink;
       'partial.info': PartialInfo;
-      'partial.impression': PartialImpression;
       'partial.image': PartialImage;
       'partial.history': PartialHistory;
       'partial.heading': PartialHeading;

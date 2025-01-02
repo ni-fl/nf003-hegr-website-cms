@@ -700,6 +700,17 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       ['partial.history', 'partial.paragraph']
     > &
       Schema.Attribute.Required;
+    impressions: Schema.Attribute.Component<'section.impression', true> &
+      Schema.Attribute.Required;
+    logo: Schema.Attribute.DynamicZone<['partial.video', 'partial.image']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
