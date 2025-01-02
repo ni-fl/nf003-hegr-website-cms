@@ -28,8 +28,8 @@
     "infos": {
       "type": "dynamiczone",
       "components": [
-        "section.timeline",
-        "section.paragraph"
+        "partial.history",
+        "partial.paragraph"
       ],
       "required": true
     }

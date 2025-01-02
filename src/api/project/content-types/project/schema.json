@@ -26,13 +26,6 @@
       "max": 1,
       "min": 1
     },
-    "impressions": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.impression",
-      "required": true,
-      "min": 1
-    },
     "project": {
       "type": "relation",
       "relation": "oneToOne",
@@ -41,8 +34,8 @@
     "infos": {
       "type": "dynamiczone",
       "components": [
-        "section.timeline",
-        "section.paragraph"
+        "partial.history",
+        "partial.paragraph"
       ],
       "required": true
     }

@@ -25,7 +25,6 @@
     "content": {
       "type": "dynamiczone",
       "components": [
-        "section.small-link",
         "section.projects",
         "section.intro",
         "section.hero-image",

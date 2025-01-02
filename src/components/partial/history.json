@@ -1,9 +1,8 @@
 {
-  "collectionName": "components_section_timelines",
+  "collectionName": "components_partial_histories",
   "info": {
-    "displayName": "Timeline",
-    "icon": "alien",
-    "description": ""
+    "displayName": "History",
+    "icon": "alien"
   },
   "options": {},
   "attributes": {
