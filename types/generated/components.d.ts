@@ -1,5 +1,166 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface GeneralMetadata extends Struct.ComponentSchema {
+  collectionName: 'components_general_metadata';
+  info: {
+    displayName: 'Metadata';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialVideo extends Struct.ComponentSchema {
+  collectionName: 'components_partial_videos';
+  info: {
+    displayName: 'Video';
+    icon: 'alien';
+  };
+  attributes: {
+    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
+    poster: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialValue extends Struct.ComponentSchema {
+  collectionName: 'components_partial_values';
+  info: {
+    displayName: 'Value';
+    icon: 'alien';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface PartialTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_partial_timelines';
+  info: {
+    displayName: 'Event';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    date: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialText extends Struct.ComponentSchema {
+  collectionName: 'components_partial_texts';
+  info: {
+    displayName: 'text';
+    icon: 'alien';
+  };
+  attributes: {
+    text: Schema.Attribute.Blocks;
+  };
+}
+
+export interface PartialParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_partial_paragraphs';
+  info: {
+    displayName: 'Paragraph';
+    icon: 'alien';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialLinklist extends Struct.ComponentSchema {
+  collectionName: 'components_partial_linklists';
+  info: {
+    displayName: 'Linklist';
+    icon: 'alien';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'partial.link', true>;
+  };
+}
+
+export interface PartialLink extends Struct.ComponentSchema {
+  collectionName: 'components_partial_links';
+  info: {
+    displayName: 'Link';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    href: Schema.Attribute.String;
+  };
+}
+
+export interface PartialInfo extends Struct.ComponentSchema {
+  collectionName: 'components_partial_infos';
+  info: {
+    displayName: 'Info';
+    icon: 'alien';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialImage extends Struct.ComponentSchema {
+  collectionName: 'components_partial_images';
+  info: {
+    displayName: 'Image';
+    icon: 'alien';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialHistory extends Struct.ComponentSchema {
+  collectionName: 'components_partial_histories';
+  info: {
+    displayName: 'History';
+    icon: 'alien';
+  };
+  attributes: {
+    events: Schema.Attribute.Component<'partial.timeline', true>;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface PartialHeading extends Struct.ComponentSchema {
+  collectionName: 'components_partial_headings';
+  info: {
+    displayName: 'Heading';
+    description: '';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    level: Schema.Attribute.Enumeration<['h1', 'h2', 'h3']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'h1'>;
+  };
+}
+
+export interface PartialCard extends Struct.ComponentSchema {
+  collectionName: 'components_partial_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    heading: Schema.Attribute.String & Schema.Attribute.Required;
+    values: Schema.Attribute.Component<'partial.value', true> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SectionTeaser extends Struct.ComponentSchema {
   collectionName: 'components_section_teasers';
   info: {
@@ -166,181 +327,10 @@ export interface SectionAddress extends Struct.ComponentSchema {
   };
 }
 
-export interface PartialVideo extends Struct.ComponentSchema {
-  collectionName: 'components_partial_videos';
-  info: {
-    displayName: 'Video';
-    icon: 'alien';
-  };
-  attributes: {
-    video: Schema.Attribute.Media<'videos'> & Schema.Attribute.Required;
-    poster: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialValue extends Struct.ComponentSchema {
-  collectionName: 'components_partial_values';
-  info: {
-    displayName: 'Value';
-    icon: 'alien';
-  };
-  attributes: {
-    text: Schema.Attribute.String;
-  };
-}
-
-export interface PartialTimeline extends Struct.ComponentSchema {
-  collectionName: 'components_partial_timelines';
-  info: {
-    displayName: 'Event';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    date: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialText extends Struct.ComponentSchema {
-  collectionName: 'components_partial_texts';
-  info: {
-    displayName: 'text';
-    icon: 'alien';
-  };
-  attributes: {
-    text: Schema.Attribute.Blocks;
-  };
-}
-
-export interface PartialParagraph extends Struct.ComponentSchema {
-  collectionName: 'components_partial_paragraphs';
-  info: {
-    displayName: 'Paragraph';
-    icon: 'alien';
-  };
-  attributes: {
-    heading: Schema.Attribute.String;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialLinklist extends Struct.ComponentSchema {
-  collectionName: 'components_partial_linklists';
-  info: {
-    displayName: 'Linklist';
-    icon: 'alien';
-  };
-  attributes: {
-    heading: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'partial.link', true>;
-  };
-}
-
-export interface PartialLink extends Struct.ComponentSchema {
-  collectionName: 'components_partial_links';
-  info: {
-    displayName: 'Link';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    href: Schema.Attribute.String;
-  };
-}
-
-export interface PartialInfo extends Struct.ComponentSchema {
-  collectionName: 'components_partial_infos';
-  info: {
-    displayName: 'Info';
-    icon: 'alien';
-  };
-  attributes: {
-    heading: Schema.Attribute.String;
-    text: Schema.Attribute.Blocks & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialImage extends Struct.ComponentSchema {
-  collectionName: 'components_partial_images';
-  info: {
-    displayName: 'Image';
-    icon: 'alien';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialHistory extends Struct.ComponentSchema {
-  collectionName: 'components_partial_histories';
-  info: {
-    displayName: 'History';
-    icon: 'alien';
-  };
-  attributes: {
-    events: Schema.Attribute.Component<'partial.timeline', true>;
-    heading: Schema.Attribute.String;
-  };
-}
-
-export interface PartialHeading extends Struct.ComponentSchema {
-  collectionName: 'components_partial_headings';
-  info: {
-    displayName: 'Heading';
-    description: '';
-  };
-  attributes: {
-    text: Schema.Attribute.String;
-    level: Schema.Attribute.Enumeration<['h1', 'h2', 'h3']> &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'h1'>;
-  };
-}
-
-export interface PartialCard extends Struct.ComponentSchema {
-  collectionName: 'components_partial_cards';
-  info: {
-    displayName: 'Card';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    values: Schema.Attribute.Component<'partial.value', true> &
-      Schema.Attribute.Required;
-  };
-}
-
-export interface GeneralMetadata extends Struct.ComponentSchema {
-  collectionName: 'components_general_metadata';
-  info: {
-    displayName: 'Metadata';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'section.teaser': SectionTeaser;
-      'section.team': SectionTeam;
-      'section.spacer': SectionSpacer;
-      'section.projects': SectionProjects;
-      'section.paragraph': SectionParagraph;
-      'section.intro': SectionIntro;
-      'section.impression': SectionImpression;
-      'section.hero-image': SectionHeroImage;
-      'section.cards': SectionCards;
-      'section.article': SectionArticle;
-      'section.address': SectionAddress;
+      'general.metadata': GeneralMetadata;
       'partial.video': PartialVideo;
       'partial.value': PartialValue;
       'partial.timeline': PartialTimeline;
@@ -353,7 +343,17 @@ declare module '@strapi/strapi' {
       'partial.history': PartialHistory;
       'partial.heading': PartialHeading;
       'partial.card': PartialCard;
-      'general.metadata': GeneralMetadata;
+      'section.teaser': SectionTeaser;
+      'section.team': SectionTeam;
+      'section.spacer': SectionSpacer;
+      'section.projects': SectionProjects;
+      'section.paragraph': SectionParagraph;
+      'section.intro': SectionIntro;
+      'section.impression': SectionImpression;
+      'section.hero-image': SectionHeroImage;
+      'section.cards': SectionCards;
+      'section.article': SectionArticle;
+      'section.address': SectionAddress;
     }
   }
 }
