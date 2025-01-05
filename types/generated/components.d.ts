@@ -1,19 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface GeneralMetadata extends Struct.ComponentSchema {
-  collectionName: 'components_general_metadata';
-  info: {
-    displayName: 'Metadata';
-    icon: 'alien';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-  };
-}
-
 export interface SectionTeaser extends Struct.ComponentSchema {
   collectionName: 'components_section_teasers';
   info: {
@@ -327,10 +313,23 @@ export interface PartialCard extends Struct.ComponentSchema {
   };
 }
 
+export interface GeneralMetadata extends Struct.ComponentSchema {
+  collectionName: 'components_general_metadata';
+  info: {
+    displayName: 'Metadata';
+    icon: 'alien';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'general.metadata': GeneralMetadata;
       'section.teaser': SectionTeaser;
       'section.team': SectionTeam;
       'section.spacer': SectionSpacer;
@@ -354,6 +353,7 @@ declare module '@strapi/strapi' {
       'partial.history': PartialHistory;
       'partial.heading': PartialHeading;
       'partial.card': PartialCard;
+      'general.metadata': GeneralMetadata;
     }
   }
 }
