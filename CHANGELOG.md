@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v0.1.4] - 16.03.2025
+- Refactor: update strapi plugins
+
 ## [v0.1.3] - 16.03.2025
 - Refactor: update strapi version
 
