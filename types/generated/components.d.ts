@@ -227,11 +227,14 @@ export interface SectionHeroImage extends Struct.ComponentSchema {
 export interface SectionImpression extends Struct.ComponentSchema {
   collectionName: 'components_section_impressions';
   info: {
+    description: '';
     displayName: 'Impression';
     icon: 'alien';
   };
   attributes: {
-    format: Schema.Attribute.Enumeration<['alpha', 'beta', 'gamma']> &
+    format: Schema.Attribute.Enumeration<
+      ['alpha', 'beta', 'gamma', 'gamma-left', 'gamma-right']
+    > &
       Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images'>;
   };

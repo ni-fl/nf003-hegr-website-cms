@@ -2,7 +2,8 @@
   "collectionName": "components_section_impressions",
   "info": {
     "displayName": "Impression",
-    "icon": "alien"
+    "icon": "alien",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,16 +12,19 @@
       "enum": [
         "alpha",
         "beta",
-        "gamma"
+        "gamma",
+        "gamma-left",
+        "gamma-right"
       ],
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
